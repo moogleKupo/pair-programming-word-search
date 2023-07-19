@@ -35,4 +35,44 @@ describe("#wordSearch()", function() {
 
     assert.isTrue(result);
   });
+  describe('Word Search', function () {
+    it('should return true if the word is found horizontally', function () {
+      const letters = [
+        ['A', 'B', 'C', 'D'],
+        ['E', 'F', 'G', 'H'],
+        ['I', 'J', 'K', 'L'],
+        ['M', 'N', 'O', 'P'],
+      ];
+      const word = 'FGH';
+      assert.isTrue(wordSearch(letters, word));
+    });
+  
+    it('should return true if the word is found vertically', function () {
+      const letters = [
+        ['A', 'B', 'C', 'D'],
+        ['E', 'F', 'G', 'H'],
+        ['I', 'J', 'K', 'L'],
+        ['M', 'N', 'O', 'P'],
+      ];
+      const word = 'BJNO';
+      assert.isTrue(wordSearch(letters, word));
+    });
+  
+    it('should return false if the word is not found horizontally or vertically', function () {
+      const letters = [
+        ['A', 'B', 'C', 'D'],
+        ['E', 'F', 'G', 'H'],
+        ['I', 'J', 'K', 'L'],
+        ['M', 'N', 'O', 'P'],
+      ];
+      const word = 'XYZ';
+      assert.isFalse(wordSearch(letters, word));
+    });
+  
+    it('should handle an empty array as the word matrix and return false', function () {
+      const letters = [];
+      const word = 'ABC';
+      assert.isFalse(wordSearch(letters, word));
+    });
+  });
 });
